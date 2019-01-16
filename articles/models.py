@@ -5,6 +5,7 @@ from datetime import datetime
 from markdownx.models import MarkdownxField
 from taggit.managers import TaggableManager
 from django.db import models
+from markdownx.utils import markdownify
 
 # Create your models here.
 class Article(models.Model):
@@ -18,3 +19,7 @@ class Article(models.Model):
 
 	class Meta:
 		pass
+
+	@property
+	def formatted_markdown(self):
+		return markdownify(self.content)

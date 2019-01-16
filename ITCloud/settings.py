@@ -37,8 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+
     'articles',
+    
+
     'markdownx',
+    'bootstrap3'
     'taggit',
 ]
 
@@ -117,8 +122,21 @@ USE_L10N = True
 USE_TZ = True
 
 
+MARKDOWNX_MARKDOWN_EXTENSIONS = [
+    'markdown.extensions.extra'
+]
+
+MARKDOWNX_MARKDOWN_EXTENSION_CONFIGS = {
+    'extension_name_1': {
+        'option_1': 'value_1'
+    }
+}
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+from local_settings import API_KEY
